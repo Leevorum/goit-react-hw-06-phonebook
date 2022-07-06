@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
+import { useSelector } from 'react-redux';
+import { filteredContacts } from 'redux/phoneBookSelectors';
 
-export default function ContactList({ filteredState, onDelete }) {
+export default function ContactList({ onDelete }) {
+  const filteredState = useSelector(filteredContacts);
+
   return (
     <ul className={s.list}>
       {filteredState.map(contact => {
@@ -17,6 +21,5 @@ export default function ContactList({ filteredState, onDelete }) {
 }
 
 ContactList.propTypes = {
-  filteredState: PropTypes.array.isRequired,
   onDelete: PropTypes.func.isRequired,
 };

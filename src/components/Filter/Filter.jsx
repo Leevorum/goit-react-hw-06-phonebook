@@ -1,7 +1,14 @@
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import s from './Filter.module.css';
+import { getFilter } from 'redux/phoneBookSelectors';
+import { addFilter } from 'redux/filterSlice';
 
-export default function Filter({ value, onChange }) {
+export default function Filter() {
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+  const handleChange = evt => {
+    dispatch(addFilter(evt.target.value));
+  };
   return (
     <label className={s.filterLabel}>
       Find contacts by name
@@ -9,8 +16,8 @@ export default function Filter({ value, onChange }) {
         className={s.filterInput}
         type="text"
         name="filter"
-        value={value}
-        onChange={onChange}
+        value={filter}
+        onChange={handleChange}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
@@ -18,8 +25,3 @@ export default function Filter({ value, onChange }) {
     </label>
   );
 }
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
