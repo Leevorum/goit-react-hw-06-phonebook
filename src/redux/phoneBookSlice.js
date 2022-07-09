@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [];
-
-export const phoneBookSlice = createSlice({
+const phoneBookSlice = createSlice({
   name: 'phoneBook',
   initialState,
   reducers: {

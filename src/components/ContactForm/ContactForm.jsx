@@ -9,18 +9,19 @@ export default function ContactForm({ onSubmit }) {
   });
 
   const handleChange = evt => {
-    switch (evt.currentTarget.name) {
-      case 'name':
-        setState({ ...state, name: evt.target.value });
-        break;
-
-      case 'number':
-        setState({ ...state, number: evt.target.value });
-        break;
-
-      default:
-        return;
-    }
+    // switch (evt.currentTarget.name) {
+    //   case 'name':
+    //     setState({ ...state, name: evt.target.value });
+    //     break;
+    //   case 'number':
+    //     setState({ ...state, number: evt.target.value });
+    //     break;
+    //   default:
+    //     return;
+    // }
+    evt.currentTarget.name === 'name'
+      ? setState({ ...state, name: evt.target.value })
+      : setState({ ...state, number: evt.target.value });
   };
 
   const handleAddContact = evt => {
