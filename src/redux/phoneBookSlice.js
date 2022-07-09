@@ -16,7 +16,7 @@ const phoneBookSlice = createSlice({
 export const phoneBookSliceReducer = phoneBookSlice.reducer;
 export const { remove, add } = phoneBookSlice.actions;
 
-export const filterSlice = createSlice({
+const filterSlice = createSlice({
   name: 'filter',
   initialState: '',
   reducers: {
