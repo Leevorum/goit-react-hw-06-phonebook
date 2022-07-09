@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = [];
 const phoneBookSlice = createSlice({
   name: 'phoneBook',
-  initialState,
+  initialState: [],
   reducers: {
     add: (state, action) => {
       state.push(action.payload);
@@ -14,6 +13,18 @@ const phoneBookSlice = createSlice({
   },
 });
 
+export const phoneBookSliceReducer = phoneBookSlice.reducer;
 export const { remove, add } = phoneBookSlice.actions;
 
-export default phoneBookSlice.reducer;
+export const filterSlice = createSlice({
+  name: 'filter',
+  initialState: '',
+  reducers: {
+    addFilter: (_, action) => {
+      return action.payload;
+    },
+  },
+});
+
+export const { addFilter } = filterSlice.actions;
+export const filterSliceReducer = filterSlice.reducer;

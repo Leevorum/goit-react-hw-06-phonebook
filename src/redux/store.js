@@ -9,8 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import phoneBookSlice from './phoneBookSlice';
-import filterSlice from './filterSlice';
+import { phoneBookSliceReducer, filterSliceReducer } from './phoneBookSlice';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
@@ -19,8 +18,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  items: phoneBookSlice,
-  filter: filterSlice,
+  items: phoneBookSliceReducer,
+  filter: filterSliceReducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

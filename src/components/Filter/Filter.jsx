@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import s from './Filter.module.css';
 import { getFilter } from 'redux/phoneBookSelectors';
-import { addFilter } from 'redux/filterSlice';
+import { addFilter } from 'redux/phoneBookSlice';
 
 export default function Filter() {
   const filter = useSelector(getFilter);
